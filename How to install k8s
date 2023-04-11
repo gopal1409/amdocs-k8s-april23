@@ -1,0 +1,34 @@
+###after login
+sudo -i
+####put the same password
+apt install docker.io
+###install kind package
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.18.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+####install kubernetes
+nano kubernetes.config
+####inside this put this configuration
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 80
+    listenAddress: "0.0.0.0" # Optional, defaults to "0.0.0.0"
+    protocol: udp # Optional, defaults to tcp
+##3PRess control x then press y and enter the file will be saved
+###now we will install kubernetes
+kind create cluster --config kubernetes.config
+###after the installation finish we need to interfact with k8s cluster using kubectl
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl
+sudo apt-get install -y apt-transport-https
+sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+####after this we can access the k8s cluster
+kubectl get nodes
+kubectl get pod -A
