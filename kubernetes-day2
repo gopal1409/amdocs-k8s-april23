@@ -1,0 +1,4 @@
+89  kubectl run nginx2 --image=nginx
+   90  kubectl get pod
+   91  kubectl delete pod nginx2
+   92  kubectl get pod
