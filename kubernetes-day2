@@ -83,3 +83,19 @@
 ####pod wise node wise utilziation report
   257  kubectl top pod
   258  kubectl top nodes
+  ###autoscaling testing
+  264  kubectl autoscale deploy web --min=2 --max=4 --cpu-percent=80
+  265  kubectl get hpa
+  266  kubectl top pod
+  #check the utilization
+  
+ 271  kubectl expose deploy web --port=80 --type=NodePort --name=webservice
+
+  273  kubectl get svc
+  274  curl localhost:32595
+#####install a hey package
+ 276  apt install hey
+ ###change the ip to your public ip
+281  hey -D req.json -T application/json -c 200 -q 100 -n 500000 http://34.228.144.23:32595
+##verify the pod utilziation
+kubectl top pod
