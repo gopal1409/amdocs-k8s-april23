@@ -57,3 +57,9 @@
 ###how to verify the service is mapped to your endpoint
  177  kubectl describe svc nginx-service-node
   178  kubectl get pod -o wide
+###dry run for pod
+220  kubectl run webpod --image=nginx --dry-run=client -o yaml
+  221  kubectl run webpod --image=nginx --dry-run=client -o yaml > drypod.yaml
+  222  ls
+  223  kubectl apply -f drypod.yaml
+  224  kubectl get pod
