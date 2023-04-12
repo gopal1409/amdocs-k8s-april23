@@ -33,3 +33,12 @@
  161  kubectl scale deploy nginx-deployment --replicas=3
     164  kubectl edit hpa nginx-deployment
 
+###how to expose your application in kubernetes
+ 166  kubectl get deploy
+  167  kubectl expose deploy nginx-deployment --name=nginx-service
+  168  kubectl get svc
+ 
+  170  kubectl expose deploy nginx-deployment --type=NodePort --name=nginx-service-node
+  171  kubectl get svc
+  172  kubectl describe svc nginx-service-node
+  173  curl localhost:30544
