@@ -63,3 +63,5 @@
   222  ls
   223  kubectl apply -f drypod.yaml
   224  kubectl get pod
+##3kubernetes help 
+ 226  kubectl create deploy --help
