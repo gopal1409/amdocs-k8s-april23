@@ -1,0 +1,18 @@
+###we want to intialized the master cluster
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16
+#####to start using the cluster
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  ##3install the cni pl;ugin
+  kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml
+  kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml
+  ###check your master node working or not
+  kubectl get nodes
+  kubectl get pod -A
+  #####we will taint the node so that i can intialized pod on master machine
+  kubectl run nginx --image=nginx
+  kubectl get pod
+  kubectl describe pod nginx
+  ###lets taint the node
+
