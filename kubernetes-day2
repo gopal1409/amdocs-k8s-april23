@@ -12,4 +12,14 @@
   112  kubectl describe pod nginx-deployment-85996f8dbd-66xmg
   113  kubectl delete pod nginx-deployment-85996f8dbd-66xmg
   114  kubectl get pod
+###kubernetes rollback and undo
+ 129  kubectl set image deployment nginx-deployment nginx=nginx:1.16.1 --record
+  130  kubectl get deploy
+  131  kubectl edit deploy nginx-deployment
+  132  kubectl get rs
+  133  kubectl get pod
+  134  kubectl rollout status deploy nginx-deployment
+  135  kubectl rollout history deploy nginx-deployment
+  137  kubectl rollout undo deploy nginx-deployment --to-revision=3
+  138  kubectl get deploy
 
