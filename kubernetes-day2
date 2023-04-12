@@ -2,3 +2,14 @@
    90  kubectl get pod
    91  kubectl delete pod nginx2
    92  kubectl get pod
+   ###lets do our first deployment and try to delete a pod
+    94  git clone https://github.com/gopal1409/amdocs-k8smanifest-april23
+   95  cd amdocs-k8smanifest-april23/
+   96  kubectl apply -f deploy.yml
+ 109  kubectl describe deploy
+  110  kubectl describe rs
+  111  kubectl get pod
+  112  kubectl describe pod nginx-deployment-85996f8dbd-66xmg
+  113  kubectl delete pod nginx-deployment-85996f8dbd-66xmg
+  114  kubectl get pod
+
