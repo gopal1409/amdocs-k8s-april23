@@ -42,3 +42,6 @@
   171  kubectl get svc
   172  kubectl describe svc nginx-service-node
   173  curl localhost:30544
+###how to verify the service is mapped to your endpoint
+ 177  kubectl describe svc nginx-service-node
+  178  kubectl get pod -o wide
