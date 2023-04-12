@@ -29,4 +29,7 @@
   150  kubectl get pod
   151  kubectl autoscale deploy nginx-deployment --min=5 --max=10 --cpu-percent=80
   152  kubectl get hpa
+##change the autscale
+ 161  kubectl scale deploy nginx-deployment --replicas=3
+    164  kubectl edit hpa nginx-deployment
 
