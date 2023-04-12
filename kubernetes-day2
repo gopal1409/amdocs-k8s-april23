@@ -32,6 +32,18 @@
 ##change the autscale
  161  kubectl scale deploy nginx-deployment --replicas=3
     164  kubectl edit hpa nginx-deployment
+####dry run to generate deployment file
+ 207  kubectl create deploy web --image=nginx --dry-run=client -o yaml
+  208  kubectl create deploy web --image=nginx --dry-run=client -o yaml > web.yml
+  209  ls
+  210  kubectl apply -f web.yml
+  211  kubectl get deploy
+###dry run to generate srv file
+ 214  kubectl expose deploy web --dry-run=client --port=80 --type=NodePort -o yaml
+  215  kubectl expose deploy web --dry-run=client --port=80 --type=NodePort -o yaml > webservice.yml
+  216  ls
+  217  kubectl apply -f webservice.yml
+  218  kubectl get svc
 
 ###how to expose your application in kubernetes
  166  kubectl get deploy
