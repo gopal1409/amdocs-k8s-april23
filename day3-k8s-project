@@ -13,4 +13,9 @@
   390  kubectl apply -f secret.yml
   391  kubectl get secret
   392  kubectl describe secret mysql-db-password
+####create the configmap
+ 394  git pull
+  395  kubectl apply -f configmap.yml
+  396  kubectl get configmap
+  397  kubectl describe configmap usermanagement-db-creation-script
 
