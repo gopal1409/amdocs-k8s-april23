@@ -1,0 +1,10 @@
+##3namespace query
+kubectl get ns
+##3if you want to create a namespace
+ 308  cd amdocs-k8smanifest-april23/
+  309  git pull
+  310  kubectl apply -f limit.yml --namespace=dev
+315  kubectl get limitrange
+  316  kubectl get limitrange -n dev
+  317  kubectl describe limitrange -n dev
+  319  kubectl describe ns dev
