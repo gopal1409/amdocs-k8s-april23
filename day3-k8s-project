@@ -2,3 +2,8 @@
   375  git pull
   376  kubectl apply -f pv.yml
   377  kubectl get pv
+###attach the storage with pvc
+383  git pull
+  384  kubectl apply -f pvc.yml
+  385  kubectl get pvc
+  386  kubectl get pv
