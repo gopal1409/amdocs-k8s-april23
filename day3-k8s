@@ -1,5 +1,6 @@
 ##3namespace query
 kubectl get ns
+kubectl create ns dev
 ##3if you want to create a namespace
  308  cd amdocs-k8smanifest-april23/
   309  git pull
