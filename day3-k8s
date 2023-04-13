@@ -39,4 +39,5 @@ kubectl create ns dev
   350  kubectl exec -it pod -- sh
 id
 touch test
+exit
 #####
