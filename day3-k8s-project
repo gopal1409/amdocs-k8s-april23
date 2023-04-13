@@ -1,0 +1,4 @@
+ 374  cd amdocs-k8smanifest-april23/
+  375  git pull
+  376  kubectl apply -f pv.yml
+  377  kubectl get pv
