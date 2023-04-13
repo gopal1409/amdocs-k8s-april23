@@ -41,3 +41,35 @@ id
 touch test
 exit
 #####
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: pod
+  name: pod
+spec:
+  securityContext:
+    runAsUser: 1000
+    runAsGroup: 3000
+    fsGroup: 2000
+  containers:
+  - command:
+    - sh
+    - -c
+    - sleep 1d
+    image: busybox
+    name: pod
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+####once your modify the file
+kubectl replace -f pod.yml
+####then login inside the pod 
+ kubectl exec -it pod -- sh
+##check
+id
+touch test
+ls
+exit
