@@ -73,3 +73,16 @@ id
 touch test
 ls
 exit
+###deploy dashboard
+ 357  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+  358  kubectl get pod -A
+  359  kubectl get svc -A
+  360  kubectl edit svc kubernetes-dashboard -n kubernetes-dashboard
+  ####from the last line change from clusterip to NodePort
+  361  kubectl get svc -A
+  ######add role based policy and create sa token
+  363  cd amdocs-k8smanifest-april23/
+  365  git pull
+  366  kubectl apply -f role.yml
+  367  kubectl apply -f sa.yml
+  368  kubectl -n kubernetes-dashboard create token admin-user
