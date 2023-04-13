@@ -9,3 +9,24 @@ kubectl create ns dev
   316  kubectl get limitrange -n dev
   317  kubectl describe limitrange -n dev
   319  kubectl describe ns dev
+  
+  
+  ####role and rolebinding
+  ###first create a namespace
+  322  kubectl create ns project-hamster
+  ##create a service account
+  323  kubectl create sa processor -n project-hamster
+  ###attach the service account with ns
+  324  kubectl -n project-hamster create role -h
+  326  kubectl -n project-hamster create role processor --verb=create --resource=secret --resource=configmap
+  ###create a rolebinding attach with role and sa with namespace
+  327  kubectl -n project-hamster create rolebinding processor -h
+  328  kubectl -n project-hamster create rolebinding processor --role processor --serviceaccount project-hamster:processor
+  ##how to verify 
+   331  kubectl -n project-hamster auth can-i create secret --as system:serviceaccount:project-hamster:processor
+  332  kubectl -n project-hamster auth can-i create configmap --as system:serviceaccount:project-hamster:processor
+  333  kubectl -n project-hamster auth can-i create pod --as system:serviceaccount:project-hamster:processor
+  334  kubectl -n project-hamster auth can-i create deployment --as system:serviceaccount:project-hamster:processor
+  335  kubectl -n project-hamster auth can-i delete secret --as system:serviceaccount:project-hamster:processor
+  336  kubectl -n project-hamster auth can-i get secret --as system:serviceaccount:project-hamster:processor
+  337  kubectl -n project-hamster auth can-i list secret --as system:serviceaccount:project-hamster:processor
