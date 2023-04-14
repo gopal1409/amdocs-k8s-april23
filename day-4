@@ -1,0 +1,21 @@
+
+ 402  cd amdocs-k8smanifest-april23/
+  403  git pull
+  404  kubectl apply -f mysql.yml
+  405  kubectl get deploy
+  406  kubectl get pod
+  409  kubectl get deploy
+  410  kubectl describe deploy mysql
+  kubectl exec -it mysql-9f996b5bd-7fpgh -- /bin/bash
+  mysql -u root -p
+  ##3password is dbpassword11
+  show datbases;
+  ###exit
+
+###create a mysql service
+
+427  cd amdocs-k8smanifest-april23/
+  428  git pull
+  429  kubectl apply -f mysqlsvc.yml
+  430  kubectl get svc
+  431  kubectl describe svc mysql
