@@ -1,0 +1,14 @@
+ ####deploy ingress
+ 453  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.6.4/deploy/static/provider/cloud/deploy.yaml
+  454  kubectl get pods --namespace=ingress-nginx
+  455  kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
+  ##create two pod and expose them using cluster ip
+  456  kubectl run pod1 --image=nginx
+  457  kubectl run pod2 --image=httpd
+  458  kubectl expose pod pod1 --port 80 --name service1
+  459  kubectl expose pod pod2 --port 80 --name service2
+  460  kubectl get pod,svc
+  ####but i need to expose my ingress
+  kubectl get svc -A
+  #####check the port number of ingress
+  ###acess the same using browser
