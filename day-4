@@ -19,3 +19,15 @@
   429  kubectl apply -f mysqlsvc.yml
   430  kubectl get svc
   431  kubectl describe svc mysql
+##3we wil;l deploy an frontend application
+ 434  git pull
+  435  kubectl apply -f frontend.yml
+  436  kubectl get pod
+  437  kubectl describe pod usermgmt-webapp-97d4b6674-k4b7p
+  ###expose the frontend app 
+   447  kubectl expose deploy  usermgmt-webapp --type=NodePort
+  448  kubectl get pod
+  449  kubectl get svc
+###username is 
+admin101
+password101
