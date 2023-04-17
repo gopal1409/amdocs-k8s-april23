@@ -44,3 +44,24 @@ spec:
       app: my-nginx
 ###then set the value from outside using helm
  701  helm upgrade my-nginx . --set replicaCount=2
+###lewts use values in service manifest
+ 707  vi values.yaml
+####add this line 
+replicaCount: 1
+service:
+  type: NodePort
+####modify the serive.yml
+spec:
+  type: {{.Values.service.type}}
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: my-nginx
+status:
+####delete the duplicat type: NodePort
+###make changes using helm upgrade
+716  helm upgrade my-nginx . --set service.type=LoadBalancer
+  717  helm upgrade my-nginx . --set service.type=NodePort
+  718  helm upgrade my-nginx . --set service.type=ClusterIP
