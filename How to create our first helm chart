@@ -17,4 +17,10 @@ description: this is our first helm chart
  669  helm install my-nginx .
   670  helm list
   672  helm uninstall my-nginx
+  ####helm rollback
+  681  vi Chart.yaml
+  682  helm upgrade my-nginx .
+  683  helm list
+  687  helm rollback my-nginx 2
+
 
