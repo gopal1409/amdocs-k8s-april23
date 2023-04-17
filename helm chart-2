@@ -1,0 +1,11 @@
+ 725  helm repo list
+  726  helm repo add bitnami https://charts.bitnami.com/bitnami
+  727  helm repo list
+  728  helm search repo mysql
+  729  helm search repo database --version
+  730  helm search repo database --versions
+  731  helm install mydb bitnami/mysql
+  732  kubectl get pod
+   735  helm status mydb
+  737  helm uninstall mydb
+  738  kubectl get pod
