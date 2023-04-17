@@ -1,0 +1,12 @@
+ 652  mkdir my-nginx
+  653  cd my-nginx/
+  654  touch Chart.yaml
+  655  mkdir templates
+  656  tree
+  657  vi Chart.yaml
+#######press Esc i
+apiVersion: v1
+name: my own nginx
+version: 0.0.1
+description: this is our first helm chart
+#####to save the file in vi editor Press Esc :wq!
