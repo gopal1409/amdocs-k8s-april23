@@ -1,4 +1,5 @@
- 652  mkdir my-nginx
+apt install tree
+652  mkdir my-nginx
   653  cd my-nginx/
   654  touch Chart.yaml
   655  mkdir templates
