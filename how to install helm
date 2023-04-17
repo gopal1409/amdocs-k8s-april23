@@ -1,0 +1,5 @@
+  643  wget https://get.helm.sh/helm-v3.11.3-linux-amd64.tar.gz
+  644  tar zxvf helm-v3.11.3-linux-amd64.tar.gz
+  645  cd linux-amd64/
+  646  mv helm /usr/bin
+  647  cd ..
