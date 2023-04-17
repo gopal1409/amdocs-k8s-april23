@@ -11,3 +11,10 @@ name: my own nginx
 version: 0.0.1
 description: this is our first helm chart
 #####to save the file in vi editor Press Esc :wq!
+
+###lets create our first chart
+ 666  kubectl create deployment my-nginx --image=nginx --dry-run=client -o yaml > ./templates/deployment.yml
+ 669  helm install my-nginx .
+  670  helm list
+  672  helm uninstall my-nginx
+
