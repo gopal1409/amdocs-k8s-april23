@@ -23,4 +23,24 @@ description: this is our first helm chart
   683  helm list
   687  helm rollback my-nginx 2
 
-
+###creating values.yaml
+ 691  vi values.yaml
+ ####inside values.yaml
+ replicaCount: 1
+ ########modify the deployment.yml
+vi ./templates/deployment.yml
+####add it in replicacount
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-nginx
+  name: my-nginx
+spec:
+  replicas: {{.Values.replicaCount}}
+  selector:
+    matchLabels:
+      app: my-nginx
+###then set the value from outside using helm
+ 701  helm upgrade my-nginx . --set replicaCount=2
