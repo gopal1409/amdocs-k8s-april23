@@ -38,3 +38,10 @@ mkdir /mnt/data1
 246  kubectl run mysql-client --image=mysql:5.7 -it --rm --restart=Never -- /bin/bash
      mysql -u root -p -h mysql-1.mysql.default.svc.cluster.local
      ###it will ask for password: dbpassword11
+###deploy multiple container inside a pod
+300  git pull
+  301  kubectl apply -f logging-container.yaml
+  302  kubectl replace -f logging-container.yaml --force
+  303  kubectl get pod
+  304  kubectl describe pod counter
+  305  kubectl logs counter count-log-1
