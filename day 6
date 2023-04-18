@@ -27,3 +27,8 @@ mkdir /mnt/data1
   206  kubectl get pod
 
   208  kubectl describe pod mysql-0
+####headless service in mysql
+222  git pull
+  223  kubectl apply -f state-headless.yml
+  224  kubectl get svc
+    226  kubectl describe svc mysql-headless
