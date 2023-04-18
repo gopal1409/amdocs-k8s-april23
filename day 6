@@ -19,3 +19,11 @@ mkdir /mnt/data1
   199  kubectl apply -f state-pvc.yml
   200  kubectl get pvc
 
+###apply the statefuleset
+202  git pull
+  203  kubectl apply -f state-mysql.yml
+  204  kubectl get pod
+  205  kubectl get statefulset
+  206  kubectl get pod
+
+  208  kubectl describe pod mysql-0
