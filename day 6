@@ -1,0 +1,8 @@
+ #probes in kubernetes
+ 144  cd amdocs-k8smanifest-april23/
+  146  git pull
+145  kubectl apply -f probes.yml
+ 150  kubectl get deploy
+  151  kubectl get pod
+  152  kubectl describe pod notes-app-deployment-765c6ddc6-bm5r9
+
