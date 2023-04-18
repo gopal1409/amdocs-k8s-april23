@@ -1,0 +1,13 @@
+###resource quota on namespace
+ 254  kubectl create namespace quota-demo
+  255  kubectl describe ns quota-demo
+###create quota file
+ 257  git pull
+  258  kubectl apply -f quota.yml
+  259  kubectl describe ns quota-demo
+####create the pod and use this cpu
+ 264  kubectl apply -f quota.pod.yml
+  265  kubectl describe ns quota-demo
+  267  kubectl apply -f quota.pod-1.yml
+  268  kubectl describe ns quota-demo
+  270  kubectl apply -f quota.pod-2.yml
