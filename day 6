@@ -32,3 +32,9 @@ mkdir /mnt/data1
   223  kubectl apply -f state-headless.yml
   224  kubectl get svc
     226  kubectl describe svc mysql-headless
+    ##3how to login using headless service
+    
+     237  kubectl delete pod mysql-client
+246  kubectl run mysql-client --image=mysql:5.7 -it --rm --restart=Never -- /bin/bash
+     mysql -u root -p -h mysql-1.mysql.default.svc.cluster.local
+     ###it will ask for password: dbpassword11
